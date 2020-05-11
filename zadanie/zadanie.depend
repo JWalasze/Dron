@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1588430243 source:/home/user/Pulpit/Dron/zadanie/Dr3D_gnuplot_api.cpp
+	"Dr3D_gnuplot_api.hh"
+	<iostream>
+	<sstream>
+	<unistd.h>
+
+1588430254 /home/user/Pulpit/Dron/zadanie/Dr3D_gnuplot_api.hh
+	"Draw3D_api_interface.hh"
+	<list>
+	<map>
+	<utility>
+	<memory>
+	<mutex>
+	<thread>
+
+1588430227 /home/user/Pulpit/Dron/zadanie/Draw3D_api_interface.hh
+	<vector>
+	<string>
+	<iostream>
+
+1588429616 source:/home/user/Pulpit/Dron/zadanie/example.cpp
+	<iostream>
+	"Dr3D_gnuplot_api.hh"
+
