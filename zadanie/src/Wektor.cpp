@@ -1,6 +1,5 @@
 #include "Wektor.hh"
 #include "cassert"
-#include "LZespolona.hh"
 
 template <class TYP, int ROZMIAR>
 Wektor<TYP, ROZMIAR>::Wektor()

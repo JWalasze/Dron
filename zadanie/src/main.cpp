@@ -1,7 +1,13 @@
 #include <iostream>
 #include "Dr3D_gnuplot_api.hh"
-#include "klasa.hh"
-#include "cmath"
+#include "MacierzOb.hh"
+#include "Macierz.hh"
+#include "Bryla.hh"
+#include "Prostopadloscian.hh"
+#include "Graniastoslup.hh"
+#include "Dron.hh"
+#include "Sruba.hh"
+#include "InterfejsRysowania.hh"
 
 using std::vector;
 using drawNS::Point3D;
@@ -16,32 +22,48 @@ void wait4key() {
 }
 
 int main() {
-  std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-5,5,-5,5,-5,5,1000)); //włacza gnuplota, pojawia się scena [-5,5] x [-5,5] x [-5,5] odświeżana co 1000 ms
-
-  //api->change_ref_time_ms(0); //odświeżanie sceny zmienione na opcję "z każdym pojawieniem się lub zniknięciem kształtu"
-  int a=api->draw_line(drawNS::Point3D(0,0,0),drawNS::Point3D(2,0,0)); //rysuje linię pomiędzy (0,0,0) a (2,0,0), zapamiętuje id kształtu w zmiennej a 
-  //api->draw_line(drawNS::Point3D(0,0,0),drawNS::Point3D(0,0,5),"red"); //rysuje czerwoną linie pomiędzy (0,0,0) a (0,0,5)
-  api->change_ref_time_ms(-1);//odświerzanie sceny zmienione na opcję "tylko za pomocą metody redraw()"
+  std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-30,30,-30,30,-30,30,1000)); 
+  api->change_ref_time_ms(-1);
 
   wait4key();
 
-  /*MacierzOb M(1.0472);
-  cout << M << endl;
-  MacierzOb Mac;
-  cout << Mac << endl;*/
+  InterfejsRysowania Interfejs;
+  Interfejs.UstawDno(api);
+  Interfejs.UstawTafle(api);
+  api->redraw();
 
-  Wektor<double, 3> Wek(3,3,3);
-  Prostopadloscian P(0,0,0,1,2,3);
-  int p=P.rysuj(api);
-  P.przesun_na_wprost(Wek);
-  api->erase_shape(p);
-  P.rysuj(api);
+  wait4key();
+  
+  Dron D(0,0,0,20,12,8);
+  Sruba G(-10,-3,0,3,4);
+  Sruba G1(-10,3,0,3,4);
+  
+  D.Set_Lewa(G);
+  D.Set_Prawa(G1);
+  D.rysuj(api);
+  api->redraw();
+
+  wait4key();
+  D.obroc_dron(0);
+  D.plyn_dronem(5,0);
+  D.rysuj(api);
   api->redraw();
 
   wait4key();
 
-  //P.rysuj(api);
+  D.obroc_dron(0);
+  D.plyn_dronem(4,0);
+  D.rysuj(api);
+  api->redraw();
+
+  wait4key();
+
+  D.obroc_dron(40);
+  D.plyn_dronem(3,0);
+  D.rysuj(api);
+  api->redraw();
+  
+  wait4key();
   
   
-  //delete api;//dla zwykłych wskaźników musimy posprzątać
 }

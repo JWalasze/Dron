@@ -1,7 +1,5 @@
-#include "Wektor.hh"
 #include "Macierz.hh"
 #include "cassert"
-#include "LZespolona.hh"
 
 using namespace std;
 
