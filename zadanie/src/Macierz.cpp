@@ -126,7 +126,7 @@ MacierzKw<TYP, ROZMIAR> MacierzKw<TYP, ROZMIAR>::operator * (const MacierzKw<TYP
     {
         for(int j=0; j<ROZMIAR; ++j)
         {
-            Wynik[j][i]= this->tab[i] * M2[j];
+            Wynik[i][j]= this->tab[i] * M2[j];
         }
     }
     return Wynik;

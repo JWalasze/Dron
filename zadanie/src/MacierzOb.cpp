@@ -22,7 +22,10 @@ void MacierzOb::UstawMacierzObr(double kat, char kierunek)
             tab[1] = {0, cos(alpha), sin(alpha)};
             tab[2] = {0,-sin(alpha), cos(alpha)};
         break;
-        default : cout << "Niepoprawny kierunek" << endl; 
+        default : 
+            tab[0] = {cos(0), sin(0), 0};
+            tab[1] = {-sin(0), cos(0), 0};
+            tab[2] = {0,0,1}; 
         break;
         }
 }

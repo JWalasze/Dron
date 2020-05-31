@@ -45,7 +45,7 @@ Graniastoslup::Graniastoslup(double WspX, double WspY, double WspZ, double WymX,
 
 void Graniastoslup::obroc(double kat, char kierunek)
 {
-    MacOrientacji = MacOrientacji * MacierzOb(kat,kierunek);
+    MacOrientacji = MacOrientacji * MacierzOb(-kat,kierunek);
 }
 
 void Graniastoslup::przesun(Wektor<double,3> Wek_Trans)

@@ -3,7 +3,7 @@ CPPFLAGS= -c -g -Wall -Iinc -pedantic -std=c++17
 __start__: DronPodwodny
 	./DronPodwodny
 
-DronPodwodny: obj/Dr3D_gnuplot_api.o obj/main.o obj/MacierzOb.o obj/Macierz.o obj/Wektor.o obj/LZespolona.o obj/InterfejsRysowania.o obj/Bryla.o obj/Graniastoslup.o obj/Prostopadloscian.o obj/Dron.o obj/Sruba.o
+DronPodwodny: obj/Dr3D_gnuplot_api.o obj/main.o obj/MacierzOb.o obj/Macierz.o obj/Wektor.o obj/LZespolona.o obj/InterfejsRysowania.o obj/Bryla.o obj/Graniastoslup.o obj/Prostopadloscian.o obj/Przeszkoda.o obj/PrzeszkodaProst.o obj/Plaszczyzna.o obj/Dron.o obj/Sruba.o
 	g++ -o DronPodwodny  obj/main.o obj/Dr3D_gnuplot_api.o -lpthread\
 						obj/Wektor.o\
 						obj/Macierz.o\
@@ -13,12 +13,15 @@ DronPodwodny: obj/Dr3D_gnuplot_api.o obj/main.o obj/MacierzOb.o obj/Macierz.o ob
 						obj/Bryla.o\
 						obj/Graniastoslup.o\
 						obj/Prostopadloscian.o\
+						obj/Przeszkoda.o\
+						obj/PrzeszkodaProst.o\
+						obj/Plaszczyzna.o\
 						obj/Dron.o\
 						obj/Sruba.o
 						
 						
 obj/main.o: src/main.cpp 	inc/Dr3D_gnuplot_api.hh inc/Macierz.hh inc/Wektor.hh\
-        					 inc/LZespolona.hh inc/MacierzOb.hh inc/InterfejsRysowania.hh inc/Bryla.hh inc/Prostopadloscian.hh inc/Graniastoslup.hh inc/Dron.hh inc/Sruba.hh
+        					 inc/LZespolona.hh inc/MacierzOb.hh inc/InterfejsRysowania.hh inc/Bryla.hh inc/Prostopadloscian.hh inc/Graniastoslup.hh inc/Przeszkoda.hh inc/PrzeszkodaProst.hh inc/Plaszczyzna.hh inc/Dron.hh inc/Sruba.hh
 	g++ ${CPPFLAGS} -o  obj/main.o src/main.cpp
 
 obj/Dr3D_gnuplot_api.o: src/Dr3D_gnuplot_api.cpp inc/Dr3D_gnuplot_api.hh
@@ -50,6 +53,15 @@ obj/Graniastoslup.o: src/Graniastoslup.cpp inc/Graniastoslup.hh
 
 obj/Prostopadloscian.o: src/Prostopadloscian.cpp inc/Prostopadloscian.hh 
 	g++ ${CPPFLAGS} -o obj/Prostopadloscian.o src/Prostopadloscian.cpp	
+
+obj/Przeszkoda.o: src/Przeszkoda.cpp inc/Przeszkoda.hh
+	g++ ${CPPFLAGS} -o obj/Przeszkoda.o src/Przeszkoda.cpp
+
+obj/PrzeszkodaProst.o: src/PrzeszkodaProst.cpp inc/PrzeszkodaProst.hh
+	g++ ${CPPFLAGS} -o obj/PrzeszkodaProst.o src/PrzeszkodaProst.cpp
+
+obj/Plaszczyzna.o: src/Plaszczyzna.cpp inc/Plaszczyzna.hh
+	g++ ${CPPFLAGS} -o obj/Plaszczyzna.o src/Plaszczyzna.cpp
 
 obj/Dron.o: src/Dron.cpp inc/Dron.hh
 	g++ ${CPPFLAGS} -o obj/Dron.o src/Dron.cpp

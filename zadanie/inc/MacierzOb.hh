@@ -11,12 +11,9 @@ class MacierzOb: public MacierzKw<double, 3>
 {
     public:
 
-    MacierzOb() : MacierzKw<double,3>()
+    MacierzOb() 
     {
-        for(int i=0; i<3; ++i)
-        {
-            tab[i][i]=1;
-        }
+        UstawMacierzObr(0, 'z');
     }
     /*!
     *\brief konstruktor bezparametrowy, tworzy macierz jednostkowa

@@ -19,6 +19,7 @@ class Prostopadloscian: public Bryla
         /*!
         *\brief wierzcholki lokalne
         */
+        //double promien;
     public:
         Prostopadloscian();
         /*!

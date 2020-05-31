@@ -3,8 +3,9 @@
 
 #include "Prostopadloscian.hh"
 #include "Sruba.hh"
+#include "InterfejsDrona.hh"
 
-class Dron : public Prostopadloscian
+class Dron : public Prostopadloscian, public InterfejsDrona
 {
     protected:
         Sruba Lewa;
@@ -15,6 +16,7 @@ class Dron : public Prostopadloscian
         /*!
         *\brief prawa sruba wirnika
         */
+        double Promien;
     public:
         Dron(double WspX, double WspY, double WspZ, double WymX, double WymY, double WymZ) : Prostopadloscian(WspX, WspY, WspZ, WymX, WymY, WymZ){}
         /*!
@@ -52,6 +54,9 @@ class Dron : public Prostopadloscian
         /*!
         *\brief rysuje drona wraz z srubami
         */
+        double zwroc_promien()const override;
+
+        Wektor<double,3> zwroc_srodek()const override;
 };
 
 

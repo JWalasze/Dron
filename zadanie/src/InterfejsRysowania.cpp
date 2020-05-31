@@ -1,6 +1,6 @@
 #include "InterfejsRysowania.hh"
 
-void InterfejsRysowania::UstawDno(std::shared_ptr<drawNS::Draw3DAPI> & api)
+/*void InterfejsRysowania::UstawDno(std::shared_ptr<drawNS::Draw3DAPI> & api)
 {
     api->draw_surface(vector<vector<Point3D> > {{
 	drawNS::Point3D(-25,-25,25), drawNS::Point3D(-25,-12.5,25),drawNS::Point3D(-25,0,25), drawNS::Point3D(-25,12.5,25), drawNS::Point3D(-25,25,25)
@@ -76,4 +76,11 @@ void InterfejsRysowania::UstawTafle(std::shared_ptr<drawNS::Draw3DAPI> & api)
 	  },{
 	drawNS::Point3D(25,-25,25), drawNS::Point3D(25,-12.5,25), drawNS::Point3D( 25,0,25), drawNS::Point3D(25,12.5,25), drawNS::Point3D(25,25,25)       
 	  }},"blue");
-}
+}*/
+
+
+
+/*void InterfejsRysowania::AnimacjaRuchu(double odleglosc, double kat)
+{
+	
+}*/

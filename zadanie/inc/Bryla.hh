@@ -43,7 +43,7 @@ class Bryla
         *\brief wirtualna metoda na rysowanie bryly
         *\param api - umozliwia rysowania za pomoca gnuplota
         */
-        int get_ind(){return ind;}
+        int get_ind() const {return ind;}
         /*!
         *\brief zwraca indeks bryly
         *\param ind - indeks bryly

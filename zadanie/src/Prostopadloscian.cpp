@@ -4,6 +4,7 @@
 Prostopadloscian::Prostopadloscian(double WspX, double WspY, double WspZ, double WymX, double WymY, double WymZ) : Wymiary(WymX, WymY, WymZ)
         {
             Wektor_Srodka = {WspX, WspY, WspZ};
+            MacOrientacji = MacierzOb(0,'z');
             Wektor<double, 3> Wektor_Przesuniecia1(-WymX/2, WymY/2, -WymZ/2);
             Wektor<double, 3> Wektor_Przesuniecia2( WymX/2, WymY/2, -WymZ/2);
             Wektor<double, 3> Wektor_Przesuniecia3(-WymX/2, -WymY/2, -WymZ/2);
@@ -24,8 +25,8 @@ Prostopadloscian::Prostopadloscian(double WspX, double WspY, double WspZ, double
         }
 
 void Prostopadloscian::obroc(double kat, char kierunek)
-        {
-            MacOrientacji = MacOrientacji * MacierzOb(kat,kierunek);
+        {   
+            MacOrientacji = MacOrientacji * MacierzOb(-kat, kierunek);
         }
 void Prostopadloscian::przesun(Wektor<double, 3> Wek_Trans)
         {

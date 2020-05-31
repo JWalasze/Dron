@@ -8,6 +8,9 @@
 #include "Dron.hh"
 #include "Sruba.hh"
 #include "InterfejsRysowania.hh"
+#include "Plaszczyzna.hh"
+#include "PrzeszkodaProst.hh"
+#include "Przeszkoda.hh"
 
 using std::vector;
 using drawNS::Point3D;
@@ -22,48 +25,93 @@ void wait4key() {
 }
 
 int main() {
-  std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-30,30,-30,30,-30,30,1000)); 
+  std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-40,40,-40,40,-40,40,1000)); 
   api->change_ref_time_ms(-1);
 
-  wait4key();
+  PrzeszkodaProst Przeszkoda1(-20,20,-30,8,8,20);
+  Przeszkoda1.rysuj(api);
+  PrzeszkodaProst Przeszkoda2(20,-30,-10,5,5,60);
+  Przeszkoda2.rysuj(api);
+  PrzeszkodaProst Przeszkoda3(20,12,-20,20,5,40);
+  Przeszkoda3.rysuj(api);
 
-  InterfejsRysowania Interfejs;
-  Interfejs.UstawDno(api);
-  Interfejs.UstawTafle(api);
+  Plaszczyzna P(-10,-10,10,10,10);
+  P.Rysuj(api);
   api->redraw();
-
   wait4key();
-  
+
   Dron D(0,0,0,20,12,8);
   Sruba G(-10,-3,0,3,4);
   Sruba G1(-10,3,0,3,4);
-  
+
   D.Set_Lewa(G);
   D.Set_Prawa(G1);
   D.rysuj(api);
   api->redraw();
 
   wait4key();
-  D.obroc_dron(0);
-  D.plyn_dronem(5,0);
-  D.rysuj(api);
-  api->redraw();
 
-  wait4key();
+  char wybor;
+  while(wybor!='k')
+  {
+    cout << "Dokonaj wyboru: ";
+    cin >> wybor;
+    cout << endl;
+    {
+      switch(wybor)
+      {
+        case 'p' : 
+        {
+          double dlugosc, kat;
+          cout << "Podaj odleglosc - ";
+          cin >> dlugosc;
+          cout << endl;
+          cout << "Podaj kat wznoszenia/opadania - ";
+          cin >> kat;
+          cout << endl;
 
-  D.obroc_dron(0);
-  D.plyn_dronem(4,0);
-  D.rysuj(api);
-  api->redraw();
+          double x = dlugosc/1000;
+          for(int i = 0; i<1000; ++i)
+          {
+            D.obroc_dron(0);
+            D.plyn_dronem(x, kat);
+            D.rysuj(api);
+            api->redraw();
+          }
+        }
+        break;
 
-  wait4key();
+        case 'o' : 
+        {
+          double kat;
+          cout << "Podaj kat obrotu - ";
+          cin >> kat;
+          cout << endl;
 
-  D.obroc_dron(40);
-  D.plyn_dronem(3,0);
-  D.rysuj(api);
-  api->redraw();
-  
-  wait4key();
-  
-  
+          double x = kat/1000;
+          for(int i = 0; i<1000; ++i)
+          {
+            D.obroc_dron(x);
+            D.plyn_dronem(0,0);
+            D.rysuj(api);
+            api->redraw();
+          }
+        }
+        break;
+
+        case 'k' : 
+        {
+          cout << "Koniec dzialania programu" << endl;
+        }
+        break;
+
+        default : cout << "Niepoprawny wybor" << endl;
+      }
+    }
+  }
+
+
+
+
+
 }
