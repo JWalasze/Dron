@@ -2,6 +2,7 @@
 #define PROSTOPADLOSCIAN_HH
 
 #include "Bryla.hh"
+//#include "InterfejsRysowania.hh"
 
 using std::vector;
 using drawNS::Point3D;
@@ -52,6 +53,7 @@ class Prostopadloscian: public Bryla
         *\brief rysowanie prostopadloscianu
         *\param api - umozliwia rysowanie w gnuplocie
         */
+       
 };
 
 #endif

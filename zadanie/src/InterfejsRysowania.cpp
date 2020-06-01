@@ -78,9 +78,7 @@ void InterfejsRysowania::UstawTafle(std::shared_ptr<drawNS::Draw3DAPI> & api)
 	  }},"blue");
 }*/
 
-
-
-/*void InterfejsRysowania::AnimacjaRuchu(double odleglosc, double kat)
+void InterfejsRysowania::odswiez_obiekt(std::shared_ptr<drawNS::Draw3DAPI> & api)
 {
-	
-}*/
+	api->redraw();
+}

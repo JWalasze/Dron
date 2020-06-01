@@ -10,17 +10,17 @@ using drawNS::Point3D;
 using drawNS::APIGnuPlot3D;
 
 
-class Plaszczyzna //: public InterfejsRysowania
+class Plaszczyzna : public InterfejsRysowania
 {
     protected:
         double WymiarX;
         double WymiarY;
-        Wektor<double,3> PunktPodstawowy;
-        std::vector<std::vector<drawNS::Point3D>> punkty;
+        //double WymiarZ;
+        std::vector<std::vector<drawNS::Point3D>> punkty_plaszczyzny;
     public:
-        Plaszczyzna(double WymX, double WymY, double X, double Y, double Z);
-        void UstawPunkty();
-        void Rysuj(std::shared_ptr<drawNS::Draw3DAPI> & api);
+        Plaszczyzna();
+        Plaszczyzna(double WymX, double WymY);
+        void rysuj(std::shared_ptr<drawNS::Draw3DAPI> & api) override;
 };
 
 

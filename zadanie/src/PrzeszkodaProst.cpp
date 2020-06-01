@@ -3,6 +3,7 @@
 PrzeszkodaProst::PrzeszkodaProst(double WspX, double WspY, double WspZ, double WymX, double WymY, double WymZ) : Prostopadloscian(WspX,WspY,WspZ,WymX,WymY,WymZ)
 {
     Wektor_Srodka = {WspX,WspY,WspZ};
+    PromienBledu = (Wymiary[0] + Wymiary[1] + Wymiary[2])/3;
 }
 
 void PrzeszkodaProst::rysuj(std::shared_ptr<drawNS::Draw3DAPI> & api)
@@ -26,3 +27,22 @@ void PrzeszkodaProst::rysuj(std::shared_ptr<drawNS::Draw3DAPI> & api)
             },"blue");
 }
 
+bool PrzeszkodaProst::czy_kolizja(std::shared_ptr<InterfejsDrona> D)
+{
+    if( std::abs(D->zwroc_srodek()[0] - Wektor_Srodka[0] ) > ( D->zwroc_promien() + Wymiary[0]/2 + PromienBledu ) )
+    {
+        if( std::abs(D->zwroc_srodek()[1] - Wektor_Srodka[1]) > ( D->zwroc_promien() + Wymiary[1]/2 + PromienBledu ) )
+        {
+            if( std::abs(D->zwroc_srodek()[2] - Wektor_Srodka[2]) > ( D->zwroc_promien() + Wymiary[2]/2 + PromienBledu ) )
+            {
+                cout << "Brak kolizji" << endl;
+                return false;
+            }
+        }
+    }
+    else 
+    {
+        cout << "Kolizja wystepuje!" << endl;
+        return true;
+    }
+}

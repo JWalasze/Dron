@@ -28,17 +28,20 @@ int main() {
   std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-40,40,-40,40,-40,40,1000)); 
   api->change_ref_time_ms(-1);
 
+  vector<std::shared_ptr<Dron>> kolekcja_dronow;
+  vector<std::shared_ptr<Przeszkoda>> kolekcja_przeszkod;
+
   PrzeszkodaProst Przeszkoda1(-20,20,-30,8,8,20);
   Przeszkoda1.rysuj(api);
   PrzeszkodaProst Przeszkoda2(20,-30,-10,5,5,60);
   Przeszkoda2.rysuj(api);
   PrzeszkodaProst Przeszkoda3(20,12,-20,20,5,40);
   Przeszkoda3.rysuj(api);
+  PrzeszkodaProst Przeszkoda4(-30,-30,-30,5,5,20);
+  Przeszkoda4.rysuj(api);
 
-  Plaszczyzna P(-10,-10,10,10,10);
-  P.Rysuj(api);
-  api->redraw();
-  wait4key();
+
+  
 
   Dron D(0,0,0,20,12,8);
   Sruba G(-10,-3,0,3,4);

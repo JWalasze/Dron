@@ -2,6 +2,7 @@
 #define GRANIASTOSLUP_HH
 
 #include "Bryla.hh"
+//#include "InterfejsRysowania.hh"
 
 using std::vector;
 using drawNS::Point3D;

@@ -30,3 +30,16 @@ Wektor<double,3> Dron::zwroc_srodek()const
 {
     return Wektor_Srodka;
 }
+
+Dron::Dron(double WspX, double WspY, double WspZ, double WymX, double WymY, double WymZ) : Prostopadloscian(WspX, WspY, WspZ, WymX, WymY, WymZ)
+{
+    Promien = sqrt( pow(WymX,2) + pow(WymY,2) + pow(WymZ,2) ) / 2;
+    Blad_Promienia = Promien - (Wymiary[0] + Wymiary[1] + Wymiary[2])/6;
+}
+
+bool Dron::czy_kolizja(std::shared_ptr<InterfejsDrona> D)
+{
+    
+}
+
+

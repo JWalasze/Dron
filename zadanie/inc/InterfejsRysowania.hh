@@ -6,7 +6,7 @@
 #include "Dron.hh"
 
 
-class InterfejsRysowania : public Prostopadloscian, public Graniastoslup
+class InterfejsRysowania 
 {
     protected:
     
@@ -19,11 +19,10 @@ class InterfejsRysowania : public Prostopadloscian, public Graniastoslup
         /*!
         *\brief ustawia tafle w gnuplocie
         */
-       //void AnimacjaRuchu(double odleglosc, double kat);
-       //void AnimacjaObrotu(double kat);
+       virtual void rysuj(std::shared_ptr<drawNS::Draw3DAPI> & api) = 0;
 
-       //void rysuj(std::shared_ptr<drawNS::Draw3DAPI> & api) override;
-
+       void odswiez_obiekt(std::shared_ptr<drawNS::Draw3DAPI> & api);
+       
 };
 
 #endif

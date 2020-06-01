@@ -4,8 +4,9 @@
 #include "Prostopadloscian.hh"
 #include "Sruba.hh"
 #include "InterfejsDrona.hh"
+#include "Przeszkoda.hh"
 
-class Dron : public Prostopadloscian, public InterfejsDrona
+class Dron : public Prostopadloscian, public Przeszkoda, public InterfejsDrona
 {
     protected:
         Sruba Lewa;
@@ -17,8 +18,14 @@ class Dron : public Prostopadloscian, public InterfejsDrona
         *\brief prawa sruba wirnika
         */
         double Promien;
+
+        double Blad_Promienia;
+
     public:
-        Dron(double WspX, double WspY, double WspZ, double WymX, double WymY, double WymZ) : Prostopadloscian(WspX, WspY, WspZ, WymX, WymY, WymZ){}
+
+        Dron() = delete;
+
+        Dron(double WspX, double WspY, double WspZ, double WymX, double WymY, double WymZ); //: Prostopadloscian(WspX, WspY, WspZ, WymX, WymY, WymZ){}
         /*!
         *\brief konstruktor sruby
         *\param WspX - wspolrzedna x srodka
@@ -39,13 +46,13 @@ class Dron : public Prostopadloscian, public InterfejsDrona
         *\param L - sruba drona
         */
 
-        void plyn_dronem(double odleglosc, double kat);
+        void plyn_dronem(double odleglosc, double kat) override;
         /*!
         *\brief plynie dronem 
         *\param odleglosc - na jaka przesunie sie dron
         *\param kat - na jaki sie wznosi lub opada
         */
-        void obroc_dron(double kat);
+        void obroc_dron(double kat) override;
         /*!
         *\brief obraca dron wzgledem osi Z
         *\param kat - o jaki sie obroci
@@ -57,6 +64,9 @@ class Dron : public Prostopadloscian, public InterfejsDrona
         double zwroc_promien()const override;
 
         Wektor<double,3> zwroc_srodek()const override;
+
+        bool czy_kolizja(std::shared_ptr<InterfejsDrona> D) override;
+
 };
 
 
