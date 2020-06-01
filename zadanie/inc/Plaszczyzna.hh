@@ -17,9 +17,10 @@ class Plaszczyzna : public InterfejsRysowania
         double WymiarY;
         //double WymiarZ;
         std::vector<std::vector<drawNS::Point3D>> punkty_plaszczyzny;
+        Wektor<double,3> punkt_poczatkowy;
     public:
         Plaszczyzna();
-        Plaszczyzna(double WymX, double WymY);
+        Plaszczyzna(double WymX, double WymY, double WspX, double Wspy, double WspZ);
         void rysuj(std::shared_ptr<drawNS::Draw3DAPI> & api) override;
 };
 

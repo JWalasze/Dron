@@ -40,9 +40,6 @@ int main() {
   PrzeszkodaProst Przeszkoda4(-30,-30,-30,5,5,20);
   Przeszkoda4.rysuj(api);
 
-
-  
-
   Dron D(0,0,0,20,12,8);
   Sruba G(-10,-3,0,3,4);
   Sruba G1(-10,3,0,3,4);

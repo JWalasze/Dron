@@ -2,10 +2,10 @@
 
 void Plaszczyzna::rysuj(std::shared_ptr<drawNS::Draw3DAPI> & api)
 {
-    api->draw_surface(punkty_plaszczyzny, "grey");
+    api->draw_surface(punkty_plaszczyzny, "blue");
 }
 
-Plaszczyzna::Plaszczyzna(double WymX, double WymY) : WymiarX(WymX), WymiarY(WymY)
+Plaszczyzna::Plaszczyzna(double WymX, double WymY, double WspX, double WspY, double WspZ) : WymiarX(WymX), WymiarY(WymY), punkt_poczatkowy(WspX,WspY,WspZ)
 {
     double x=(-0.5)*WymiarX;
     double y=(-0.5)*WymiarY;

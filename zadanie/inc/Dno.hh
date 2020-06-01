@@ -7,10 +7,10 @@
 class Dno : public Plaszczyzna, public Przeszkoda
 {
     protected:
-        double WymiarZ;
+        
     public:
         Dno() = delete;
-        //Dno(double WymX, double WymY, double WymZ) : Plaszczyzna(WymX,WymY), WymiarZ(WymZ){}
+        Dno(double WymX, double WymY, double WymZ) : Plaszczyzna(WymX,WymY,0,0,WymZ) {}
         bool czy_kolizja(std::shared_ptr<InterfejsDrona> D) override;
 };
 
