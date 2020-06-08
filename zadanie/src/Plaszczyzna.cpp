@@ -11,17 +11,17 @@ Plaszczyzna::Plaszczyzna(double WymX, double WymY, double WspX, double WspY, dou
     double y=(-0.5)*WymiarY;
     Wektor<double,3> W;
     vector<Point3D> Temp;
-    for(int i=0; i<=WymiarY/5; ++i)
+    for(int i=0; i<=WymiarX/5; ++i)
     {
         Temp.clear();
-        for(int j=0; j<=WymiarX/5; ++j)
+        for(int j=0; j<=WymiarY/5; ++j)
         {
-            W = Wektor<double,3>{x,y,0};
+            W = Wektor<double,3>{x,y,0} + punkt_poczatkowy;
             Temp.push_back(Point3D(W[0],W[1],W[2]));
-            y = y + 5;
+            y = y + 10;
         }
         y=-0.5*WymiarX;
-        x = x + 5;
+        x = x + 10;
         punkty_plaszczyzny.push_back(Temp);
     }    
 }

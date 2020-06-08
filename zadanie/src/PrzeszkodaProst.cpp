@@ -3,7 +3,7 @@
 PrzeszkodaProst::PrzeszkodaProst(double WspX, double WspY, double WspZ, double WymX, double WymY, double WymZ) : Prostopadloscian(WspX,WspY,WspZ,WymX,WymY,WymZ)
 {
     Wektor_Srodka = {WspX,WspY,WspZ};
-    PromienBledu = (Wymiary[0] + Wymiary[1] + Wymiary[2])/3;
+    //PromienBledu = (Wymiary[0] + Wymiary[1] + Wymiary[2])/3;
 }
 
 void PrzeszkodaProst::rysuj(std::shared_ptr<drawNS::Draw3DAPI> & api)
@@ -24,25 +24,25 @@ void PrzeszkodaProst::rysuj(std::shared_ptr<drawNS::Draw3DAPI> & api)
                 drawNS::Point3D(WierzcholkiGlob[5][0],WierzcholkiGlob[5][1],WierzcholkiGlob[5][2]),
                 drawNS::Point3D(WierzcholkiGlob[6][0],WierzcholkiGlob[6][1],WierzcholkiGlob[6][2]), 
                 drawNS::Point3D(WierzcholkiGlob[7][0],WierzcholkiGlob[7][1],WierzcholkiGlob[7][2])}
-            },"blue");
+            },"grey");
 }
 
 bool PrzeszkodaProst::czy_kolizja(std::shared_ptr<InterfejsDrona> D)
 {
-    if( std::abs(D->zwroc_srodek()[0] - Wektor_Srodka[0] ) > ( D->zwroc_promien() + Wymiary[0]/2 + PromienBledu ) )
+    PromienBledu = 1.5;
+
+    if( std::abs(D->zwroc_srodek()[0] - Wektor_Srodka[0] ) <= ( D->zwroc_promien() + Wymiary[0]/2 + PromienBledu ) )
     {
-        if( std::abs(D->zwroc_srodek()[1] - Wektor_Srodka[1]) > ( D->zwroc_promien() + Wymiary[1]/2 + PromienBledu ) )
+        if( std::abs(D->zwroc_srodek()[1] - Wektor_Srodka[1]) <= ( D->zwroc_promien() + Wymiary[1]/2 + PromienBledu ) )
         {
-            if( std::abs(D->zwroc_srodek()[2] - Wektor_Srodka[2]) > ( D->zwroc_promien() + Wymiary[2]/2 + PromienBledu ) )
+            if( std::abs(D->zwroc_srodek()[2] - Wektor_Srodka[2]) <= ( D->zwroc_promien() + Wymiary[2]/2 - PromienBledu ) )
             {
-                cout << "Brak kolizji" << endl;
-                return false;
+                return true;
             }
         }
     }
     else 
     {
-        cout << "Kolizja wystepuje!" << endl;
-        return true;
+        return false;
     }
 }

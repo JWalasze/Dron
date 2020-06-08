@@ -9,6 +9,8 @@ class PrzeszkodaProst : public Prostopadloscian, public Przeszkoda
     protected:
 
         double PromienBledu;
+        //double PromienBleduY;
+        //double PromienBleduZ;
 
     public:
         PrzeszkodaProst() = delete;

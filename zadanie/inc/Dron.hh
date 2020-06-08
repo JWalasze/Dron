@@ -67,6 +67,10 @@ class Dron : public Prostopadloscian, public Przeszkoda, public InterfejsDrona
 
         bool czy_kolizja(std::shared_ptr<InterfejsDrona> D) override;
 
+        double zwroc_wymiarX()const override;
+        double zwroc_wymiarY()const override;
+        double zwroc_wymiarZ()const override;
+
 };
 
 
