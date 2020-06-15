@@ -52,8 +52,8 @@ int main() {
   Sruba G(-5,-1.5,0,1.5,2);
   Sruba G1(-5,1.5,0,1.5,2);
 
-  Sruba G2(-5,-21.5,30,1.5,2);
-  Sruba G3(-5,-18.5,30,1.5,2);
+  Sruba G2(-5,-21.5,10,1.5,2);
+  Sruba G3(-5,-18.5,10,1.5,2);
 
   //D.Set_Lewa(G);
   //D.Set_Prawa(G1);
@@ -61,7 +61,7 @@ int main() {
   api->redraw();
 
   std::shared_ptr<Dron> D = std::make_shared<Dron>(0,0,0,10,6,4);
-  std::shared_ptr<Dron> D1 = std::make_shared<Dron>(0,-20,30,10,6,4);
+  std::shared_ptr<Dron> D1 = std::make_shared<Dron>(0,-20,10,10,6,4);
   D1->Set_Lewa(G2);
   D1->Set_Prawa(G3);
   D->Set_Lewa(G);
@@ -105,8 +105,6 @@ int main() {
   char wybor;
   while(wybor!='k')
   {
-    //cout << "Aktualna ilosc wektorow: " << Wektor<double,3>::zwroc_aktualne_wektory() << endl;
-    //cout << "Calkowita ilosc wektorow: " << Wektor<double,3>::zwroc_liczbe_wszystkich_wektorow() << endl;
     cout << "Dokonaj wyboru: ";
     cin >> wybor;
     cout << endl;

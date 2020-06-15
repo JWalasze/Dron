@@ -4,36 +4,24 @@
 template <class TYP, int ROZMIAR>
 Wektor<TYP, ROZMIAR>::Wektor()
 {
-    //ilosc_wektorow++;
-    //calkowita_ilosc_wektorow++;
     for(int i=0; i<ROZMIAR; ++i)
     {
         this->tab[i]=0;
     }
 }
 
-/*template <class TYP, int ROZMIAR>
+template <class TYP, int ROZMIAR>
 Wektor<TYP,ROZMIAR>::Wektor(const Wektor<TYP, ROZMIAR> & Wek)
 {
-    //ilosc_wektorow++;
-    //calkowita_ilosc_wektorow++;
     for(int i =0; i<ROZMIAR; ++i)
     {
         this->tab[i] = Wek[i];
     }
-}*/
-
-//template <class TYP, int ROZMIAR>
-//int Wektor<TYP,ROZMIAR>::ilosc_wektorow(0);
-
-//template <class TYP, int ROZMIAR>
-//int Wektor<TYP,ROZMIAR>::calkowita_ilosc_wektorow(0);
+}
 
 template <class TYP, int ROZMIAR>
 Wektor<TYP, ROZMIAR>::Wektor(TYP tablica[])
 {
-    //ilosc_wektorow++;
-    //calkowita_ilosc_wektorow++;
     for(int i=0; i<ROZMIAR; ++i)
     {
         this->tab[i]=tablica[i];
@@ -43,8 +31,6 @@ Wektor<TYP, ROZMIAR>::Wektor(TYP tablica[])
 template <class TYP, int ROZMIAR>
 Wektor<TYP, ROZMIAR>::Wektor(TYP x, TYP y, TYP z, TYP a, TYP b)
    {
-    ilosc_wektorow++;
-    calkowita_ilosc_wektorow++;
    int i=0;
    this->tab[i]=x;
    this->tab[++i]=y;
@@ -56,8 +42,6 @@ Wektor<TYP, ROZMIAR>::Wektor(TYP x, TYP y, TYP z, TYP a, TYP b)
 template <class TYP, int ROZMIAR>
 Wektor<TYP, ROZMIAR>::Wektor(TYP x, TYP y, TYP z)
    {
-    ilosc_wektorow++;
-    calkowita_ilosc_wektorow++;
    int i=0;
    this->tab[i]=x;
    this->tab[++i]=y;
