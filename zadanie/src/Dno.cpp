@@ -4,11 +4,11 @@ bool Dno::czy_kolizja(std::shared_ptr<InterfejsDrona> D)
 {
     if(std::abs(D->zwroc_srodek()[2] - wysokosc) <= D->zwroc_wymiarZ() )
     {
-        return 1;
+        return true;
     }
     else
     {
-        return 0;
+        return false;
     }
     
 }
