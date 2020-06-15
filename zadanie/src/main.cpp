@@ -33,21 +33,9 @@ int main() {
   vector<std::shared_ptr<Dron>> kolekcja_dronow;
   vector<std::shared_ptr<Przeszkoda>> kolekcja_przeszkod;
 
-  /*PrzeszkodaProst Przeszkoda1(-20,20,-30,8,8,20);
-  Przeszkoda1.rysuj(api);
-  PrzeszkodaProst Przeszkoda2(20,-30,-10,5,5,60);
-  Przeszkoda2.rysuj(api);
-  PrzeszkodaProst Przeszkoda3(20,12,-20,20,5,40);
-  Przeszkoda3.rysuj(api);
-  PrzeszkodaProst Przeszkoda4(-30,-30,-30,5,5,20);
-  Przeszkoda4.rysuj(api);*/
-
-
   Tafla woda(80,80,40);
   Dno dno(80,80,-40);
-  //woda.rysuj(api);
-  //dno.rysuj(api);
-
+  
   //Dron D(0,0,0,20,12,8);
   Sruba G(-5,-1.5,0,1.5,2);
   Sruba G1(-5,1.5,0,1.5,2);
