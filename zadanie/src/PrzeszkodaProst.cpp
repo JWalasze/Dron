@@ -33,7 +33,7 @@ bool PrzeszkodaProst::czy_kolizja(std::shared_ptr<InterfejsDrona> D)
 
     if( std::abs(D->zwroc_srodek()[0] - Wektor_Srodka[0] ) <= ( D->zwroc_promien() + Wymiary[0]/2 + PromienBledu ) )
     {
-        if( std::abs(D->zwroc_srodek()[1] - Wektor_Srodka[1]) <= ( D->zwroc_promien() + Wymiary[1]/2 + PromienBledu ) )
+        if( std::abs(D->zwroc_srodek()[1] - Wektor_Srodka[1]) <= ( D->zwroc_promien() + Wymiary[1]/2 ) )
         {
             if( std::abs(D->zwroc_srodek()[2] - Wektor_Srodka[2]) <= ( D->zwroc_promien() + Wymiary[2]/2 - PromienBledu ) )
             {
